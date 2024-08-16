@@ -1,5 +1,6 @@
 import './bootstrap';
 import confetti from 'canvas-confetti';
+const giphyApiKey = import.meta.env.VITE_GIPHY_API_KEY;
 
 document.getElementById('playButton').addEventListener('click', async () => {
     const card = document.getElementById('card');
@@ -12,13 +13,20 @@ document.getElementById('playButton').addEventListener('click', async () => {
         const response = await fetch('/api/job');
         const data = await response.json();
         const {message, title, salary, emoji} = data;
-        const socialMediaMessage = `¡Mi nuevo trabajo en la asamble es ${title}! ganando: $${salary} ${emoji}, Descubre cuál sería tu plaza y cuánto podrías ganar ➡️ https://tu-plaza-fantasma-sv.fly.dev/`;
+        const socialMediaMessage = `¡Mi nuevo trabajo en la asamblea es ${title}! ganando: $${salary} ${emoji}, Descubre cuál sería tu plaza y cuánto podrías ganar ➡️ https://tu-plaza-fantasma-sv.fly.dev/`;
+
+        const giphyResponse = await fetch(`https://api.giphy.com/v1/gifs/random?api_key=${giphyApiKey}&tag=money&rating=g`);
+        const giphyData = await giphyResponse.json();
+        const gifUrl = giphyData.data.images.original.url;
 
         const newCard = document.createElement('div');
         newCard.classList.add('bg-white', 'rounded-lg', 'shadow-lg', 'p-6', 'max-w-lg', 'w-full', 'animate-fade-in');
         newCard.innerHTML = `
             <h2 class="text-2xl font-bold mb-4 text-center">Resultado 🎉</h2>
             <p class="text-gray-700 text-center mb-6">${message}</p>
+                <div id="gifContainer" class="flex justify-center mb-6">
+                    <img src="${gifUrl}" alt="Money GIF" class="w-full max-w-xs rounded">
+                </div>
             <div class="flex justify-center space-x-4 mb-6">
                 <a href="https://wa.me/?text=${encodeURIComponent(socialMediaMessage)}" target="_blank" class="w-full bg-green-500 text-white font-bold py-2 px-4 rounded hover:bg-green-700 text-center">Compartir en WhatsApp</a>
                 <a href="https://twitter.com/intent/tweet?text=${encodeURIComponent(socialMediaMessage)}" target="_blank" class="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-700 text-center">Compartir en Twitter</a>

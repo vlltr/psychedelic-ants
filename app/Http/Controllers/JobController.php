@@ -21,7 +21,7 @@ class JobController extends Controller
 
         $currentEmojis = $emojis[array_rand($emojis)];
 
-        $message = 'Felicidades tu nueva plaza fantasma es: ' . $job->title . ', Ganando: $' . number_format($job->salary, 2) . ' ' . $currentEmojis . '.';
+        $message = 'Felicidades tu nueva plaza fantasma es: ' . $job->title . ', Ganando: $<strong>' . number_format($job->salary, 2) . '</strong> ' . $currentEmojis . '.';
         return response()->json([
             'title' => $job->title,
             'salary' => number_format($job->salary, 2),
