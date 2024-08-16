@@ -9,9 +9,6 @@
     <meta name="author" content="Villatoro">
     <meta property="og:title" content="Tu Plaza Fantasma en la Asamblea: ¡Descubre y Juega! 👻">
     <meta property="og:description" content="Generador de Plazas Fantasmas en la Asamblea de El Salvador: Descubre tu plaza fantasma y adivina tu salario.">
-    <meta property="og:image" content="URL_de_tu_imagen">
-    <meta property="og:url" content="URL_de_tu_web">
-    <meta name="twitter:card" content="summary_large_image">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 </head>
