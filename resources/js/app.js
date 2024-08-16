@@ -12,7 +12,7 @@ document.getElementById('playButton').addEventListener('click', async () => {
         const response = await fetch('/api/job');
         const data = await response.json();
         const {message, title, salary, emoji} = data;
-        const socialMediaMessage = `¡Mi nuevo trabajo en la asamble es ${title}! ganando: $${salary} ${emoji}, Descubre cuál sería tu plaza y cuánto podrías ganar https://drchepito.com`;
+        const socialMediaMessage = `¡Mi nuevo trabajo en la asamble es ${title}! ganando: $${salary} ${emoji}, Descubre cuál sería tu plaza y cuánto podrías ganar ➡️ https://tu-plaza-fantasma-sv.fly.dev/`;
 
         const newCard = document.createElement('div');
         newCard.classList.add('bg-white', 'rounded-lg', 'shadow-lg', 'p-6', 'max-w-lg', 'w-full', 'animate-fade-in');
