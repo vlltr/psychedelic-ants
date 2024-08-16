@@ -19,7 +19,14 @@ class JobController extends Controller
             '🪙🏦🏧',
         ];
 
-        $message = 'Felicidades tu nueva plaza fantasma es: ' . $job->title . ', Ganando: $' . number_format($job->salary, 2) . ' ' . $emojis[array_rand($emojis)] . '.';
-        return response()->json(['message' => $message]);
+        $currentEmojis = $emojis[array_rand($emojis)];
+
+        $message = 'Felicidades tu nueva plaza fantasma es: ' . $job->title . ', Ganando: $' . number_format($job->salary, 2) . ' ' . $currentEmojis . '.';
+        return response()->json([
+            'title' => $job->title,
+            'salary' => number_format($job->salary, 2),
+            'message' => $message,
+            'emoji' => $currentEmojis,
+        ]);
     }
 }
