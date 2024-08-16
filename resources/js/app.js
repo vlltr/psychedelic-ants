@@ -52,6 +52,7 @@ document.getElementById('playButton').addEventListener('click', async () => {
     } catch (error) {
         console.error('Error fetching the job:', error);
         card.classList.remove('hidden');
+        loading.classList.add('hidden');
     }
 });
 
