@@ -10,7 +10,6 @@
     <meta property="og:title" content="Tu Plaza Fantasma en la Asamblea: ¡Descubre y Juega! 👻">
     <meta property="og:description" content="Generador de Plazas Fantasmas en la Asamblea de El Salvador: Descubre tu plaza fantasma y adivina tu salario.">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 </head>
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">
 <div id="card" class="bg-white rounded-lg shadow-lg p-6 max-w-lg w-full">
